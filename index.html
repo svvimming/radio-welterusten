@@ -103,8 +103,8 @@
     </style>
   </head>
   <body>
-    <audio id="cashmereradio" crossorigin="anonymous">
-       <source src="https://cashmereradio.out.airtime.pro/cashmereradio_b" type="audio/mpeg">
+    <audio id="radiowelty" crossorigin="anonymous">
+       <source src="http://radiolip.out.airtime.pro:8000/radiolip_a" type="audio/mpeg">
     </audio>
 
     <div id="container">
@@ -130,7 +130,7 @@
       var toggle = false;
 
       var audioCtx = Tone.context;
-      var radio = document.getElementById('cashmereradio');
+      var radio = document.getElementById('radiowelty');
       var stream = audioCtx.createMediaElementSource(radio);
 
       Tone.connect(stream, input, [inputNum=0], [outputNum=0]);
@@ -153,7 +153,6 @@
 
         img.setAttribute('src', imgPaths[ind]);
 
-        console.log(img.classList);
         img.style.left = (Math.random()*ctn.clientWidth) - 100 +'px';
         img.style.top = (Math.random()*ctn.clientHeight) - 75 +'px';
         img.style.transform = 'rotate('+Math.random()*360+'deg)';
