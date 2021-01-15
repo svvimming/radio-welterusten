@@ -100,6 +100,13 @@
         width: 800px;
       }
 
+      #slaapliedjes{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: -1;
+      }
+
     </style>
   </head>
   <body>
@@ -110,9 +117,13 @@
     <div id="container">
       <button id="play" onclick="bomDia()">Bom Dia</button>
       <button id="pause" class="right" onclick="boaNoite()">Boa Noite</button>
-      <img id="inbed" src="inbed.jpeg" onclick="nightynight()">
-    </div>
+      <img id="inbed" src="inbed-tv.png" onclick="nightynight()">
 
+      <video id="slaapliedjes" width="800" height="600">
+          <source src="slaapliedjes.MP4" type="video/mp4" />
+      </video>
+
+    </div>
 
   	<script type="text/javascript">
 
@@ -132,18 +143,23 @@
       var audioCtx = Tone.context;
       var radio = document.getElementById('radiowelty');
       var stream = audioCtx.createMediaElementSource(radio);
+      var slaap = document.getElementById('slaapliedjes');
+      console.log(slaap);
 
       Tone.connect(stream, input, [inputNum=0], [outputNum=0]);
 
       input.connect(Tone.Master);
 
       function bomDia() {
-        radio.pause();
+        // radio.pause();
+        slaap.pause();
       }
 
       function boaNoite() {
-        audioCtx.resume();
-        radio.play();
+        // audioCtx.resume();
+        // radio.play();
+        slaap.play();
+        console.log('hit');
       }
 
       function nightynight() {
